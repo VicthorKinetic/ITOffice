@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<title>Protheus</title>
+	
+	<nav class="header">
+		<a href="login.html" class = "containerlogo"><img src = "images/logo.png" alt = "" id = "logo"></a>
+			<div class="header-right">
+		</div>
+	</nav>
+	
+</head>
+
+<body id = "tela">
+	<h3>Pedido de Compra</h3>
+	
+	<button type = "button" class = "btn btn-primary">+ Incluir</button>
+	<button type="button" class="btn btn-secondary">Alterar</button>
+	<button type="button" class="btn btn-secondary">Visualizar</button>
+	<button type="button" class="btn btn-secondary">Outras Ações</button>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>COD_ESTAB_ERP</th>
+				<th>DES_ESTAB</th>
+			</tr>
+		</thead>
+		<tbody id="tBody"></tbody>
+	</table>
+	
+	<div id = "root"></div>
+</body>
+
+</html>
+<script>
+$(document).ready(function(){
+    $.ajax({
+        url:'http://stl4zd.tst.protheus.totvscloud.com.br:24135/rest/ESTABLISHMENT',
+        method:'GET',
+        contentType: "application/json",    
+        dataType:'json',
+        success:function(response){
+        var trHTML='';
+            for(var i='0';i<response.length;i++){
+           trHTML=trHTML+'<tr><td>'+response[i].COD_ESTAB_ERP+'</td><td>'+response[i].DES_ESTAB+'</td></tr>'; 
+           }
+          $('#tBody').append(trHTML);
+        },
+        error:function(response){
+
+        }
+      });
+   });
+</script>
+
+<script src = "script.js"></script>

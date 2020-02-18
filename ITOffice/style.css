@@ -1,0 +1,50 @@
+.header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 99vw;
+	overflow: hidden;
+	z-index: 50;
+	background-color: white;
+	border-bottom: 2px solid gray;
+}
+.header a.containerlogo {
+	padding-left: 10px;
+	padding-bottom: 0;
+	padding-top: 5px;
+}
+.header-right {
+	float: right;
+}
+
+#logo{
+		height: 40px; 
+		width: 45px;
+		background-size: cover;
+}
+
+#tela{
+	margin-top: 90px;
+}
+
+/*<script>
+$(document).ready(function(){
+    $.ajax({
+        url:'http://stl4zd.tst.protheus.totvscloud.com.br:24135/rest/USERS',
+        method:'GET',
+        contentType: "application/json",    
+        dataType:'json',
+        success:function(response){
+        var trHTML='';
+        
+            for(var i='0';i<response.length;i++){
+           trHTML=trHTML+'<tr><td>'+response[i].resources+'</td><td>'+response[i]+resources.title+'</td></tr>'; 
+           }
+          $('#tBody').append(trHTML);
+        },
+        error:function(response){
+
+        }
+      });
+   });
+</script>*/
